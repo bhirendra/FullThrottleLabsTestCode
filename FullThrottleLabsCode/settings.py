@@ -24,7 +24,7 @@ SECRET_KEY = 'wg6o3b60s0t^_meec43tm29_c_^5j3h&%5$m*tpr_uy9c(^-r)'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['bhirendra.com', 'localhost']
+ALLOWED_HOSTS = ['bhirendra.com', 'www.bhirendra.com', 'localhost']
 
 # Application definition
 
