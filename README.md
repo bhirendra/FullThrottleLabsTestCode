@@ -17,7 +17,9 @@
  3. **Populate dummy users data  API**
 
     url : ***/api/reset-users/***
+    
     or
+    
     **Populate dummy users data by management command**
 
     This command resets users data and populates new.
@@ -34,11 +36,11 @@ Used external library swagger([django-rest-swagger](https://pypi.org/project/dja
 
  - A swagger-ui view of API specification 
 
-url: ***/api/doc/*** 
+   url: ***/api/doc/*** 
 
 - A ReDoc view of API specification
 
-url: ***/api/uidoc/*** 
+   url: ***/api/uidoc/*** 
 
 ## Adminpanel Link
 Link of django administration page
