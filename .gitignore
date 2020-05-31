@@ -1,1 +1,8 @@
 .idea/*
+.idea/
+.idea/HealthPotliServer.iml
+.idea/misc.xml
+__pycache__/
+__pycache__/*
+*__pycache__/*
+.vscode/

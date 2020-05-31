@@ -46,7 +46,6 @@ class UsersData(models.Model):
         # Generating random id for the new instance
         while not self.id:
             new_id = get_random_alpha_numeric_string()
-            print(new_id)
 
             # Check the new id if its already being used by other instance
             if not UsersData.objects.filter(id=new_id).exists():

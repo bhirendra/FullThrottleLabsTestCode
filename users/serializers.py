@@ -1,7 +1,5 @@
-import pytz
 from rest_framework import serializers
-import keys
-import model_keys
+from helper import keys, model_keys
 from users.models import UsersActivityPeriodsData, UsersData
 
 
@@ -26,7 +24,7 @@ class UserActivityPeriodSerializer(serializers.ModelSerializer):
         :param instance:
         :return:
         """
-        return instance.local_end_time.strftime(keys.START_TIME_FORMAT)
+        return instance.local_end_time.strftime(keys.END_TIME_FORMAT)
 
     class Meta:
         model = UsersActivityPeriodsData
@@ -38,15 +36,16 @@ class UsersDataSerializer(serializers.ModelSerializer):
     Serializer for getting user's data with all activity periods
     """
     real_name = serializers.CharField(source='name')
-    activity_periods = serializers.SerializerMethodField()
+    activity_periods = serializers.SerializerMethodField(help_text="List of activity periods")
 
     def get_activity_periods(self, instance):
         """
-        Get serializer data of user's activity period
+        Get serializer data of user's activity periods
         :param instance:
         :return:
         """
-        return UserActivityPeriodSerializer(instance.usersactivityperiodsdata_set.all(), many=True).data
+        return UserActivityPeriodSerializer(instance.usersactivityperiodsdata_set.order_by('start_time', 'end_time'),
+                                            many=True).data
 
     class Meta:
         model = UsersData
